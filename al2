@@ -1,0 +1,124 @@
+problem 1
+
+
+
+Algorithm SumDistinctElements
+
+Variables
+    A, B : arrays of integers
+    n, m, i, j : integers
+    found : boolean
+    sum : integer
+
+Begin
+    sum ← 0
+
+    // Check elements of Set 1
+    For i ← 1 to n do
+        found ← false
+
+        For j ← 1 to m do
+            If A[i] = B[j] then
+                found ← true
+            EndIf
+        EndFor
+
+        If found = false then
+            sum ← sum + A[i]
+        EndIf
+    EndFor
+
+    // Check elements of Set 2
+    For i ← 1 to m do
+        found ← false
+
+        For j ← 1 to n do
+            If B[i] = A[j] then
+                found ← true
+            EndIf
+        EndFor
+
+        If found = false then
+            sum ← sum + B[i]
+        EndIf
+    EndFor
+
+    Write(sum)
+End
+
+
+
+
+problem 2
+
+
+
+Procedure dot_product(v1, v2, n, Var ps)
+
+Variables
+    i : integer
+
+Begin
+    ps ← 0
+
+    For i ← 1 to n do
+        ps ← ps + (v1[i] * v2[i])
+    EndFor
+End
+
+
+
+
+Function dot_product(v1, v2, n) : real
+
+Variables
+    i : integer
+    ps : real
+
+Begin
+    ps ← 0
+
+    For i ← 1 to n do
+        ps ← ps + (v1[i] * v2[i])
+    EndFor
+
+    Return ps
+End
+Algorithm CheckOrthogonal
+
+Variables
+    v1, v2 : arrays of real
+    n, pairs, i, j : integer
+    ps : real
+
+Begin
+
+    Write("Enter number of vector pairs:")
+    Read(pairs)
+
+    For i ← 1 to pairs do
+
+        Write("Enter dimension of vectors:")
+        Read(n)
+
+        Write("Enter elements of vector 1:")
+        For j ← 1 to n do
+            Read(v1[j])
+        EndFor
+
+        Write("Enter elements of vector 2:")
+        For j ← 1 to n do
+            Read(v2[j])
+        EndFor
+
+        ps ← dot_product(v1, v2, n)
+
+        If ps = 0 then
+            Write("The vectors are orthogonal")
+        Else
+            Write("The vectors are not orthogonal")
+        EndIf
+
+    EndFor
+
+End
